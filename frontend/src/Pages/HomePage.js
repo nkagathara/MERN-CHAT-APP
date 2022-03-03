@@ -1,9 +1,18 @@
 import { Box, Container, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import Login from '../Components/Authentications/Login'
 import Signup from '../Components/Authentications/Signup'
 
 const HomePage = () => {
+  const history = useHistory();
+  useEffect(()=>{
+    const user = localStorage.getItem("userInfo");
+
+    if(user){
+      history.push("/chats");
+    }
+  },[history])
   return (
     <Container>
       <Box d="flex" p={1} background="white" justifyContent="center" borderRadius="lg" borderWidth="1px" textAlign="center" w="100%" m="40px 0 15px 0">

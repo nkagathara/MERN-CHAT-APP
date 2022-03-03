@@ -9,7 +9,7 @@ const Login = () => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const [loading,setLoading] = useState(false);
-    const toast = useToast()
+    const toast = useToast();
     const showPassword = () => SetShow(!show);
     const history = useHistory();
 
@@ -37,12 +37,12 @@ const Login = () => {
                 title: 'Login Successful',
                 status: 'success',
                 position: 'top-right',
-                duration: 5000,
+                duration: 2000,
                 isClosable: true,
               })
             setLoading(false);
             localStorage.setItem("userInfo", JSON.stringify(data));
-            history.push('/chat');  
+            history.push('/chats');  
         } catch (error) {
             toast({
                 title: "Error Occured!",
